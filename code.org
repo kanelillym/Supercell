@@ -1,0 +1,44 @@
+#+title: Supercell
+#+author: Beau Lore
+#+PROPERTY: header-args:emacs-lisp :tangle ./main.el
+
+This is a code description file for the game Supercell, a variant of tic-tac-toe.
+
+Because it's an approach I understand, I'm going to start by implementing the game as a REPL.
+
+* Game Rules
+
+** Overview
+
+Normal tic-tac-toe is played on a 3 by 3 board where players alternate placing X's and O's until one makes 3 in a row, which wins the game. It almost always ends in a draw, because it's quite easy to defend.
+
+Supercell is a bit more tactically interesting, because the board is made up by a 3x3 board *where each cell is a normal game of tic-tac-toe*. Winning a game of tic-tac-toe wins you that cell, and you have to get three cells in a row to win the whole game. The twist is, you can only play in the cell chosen by your opponent's most recent move!
+
+** Formalization
+
+- The =Board= is a 3 by 3 grid of =Cells=.
+- Each =Cell= is a 3 by 3 grid of =Spaces=.
+- One player plays 'X' and the other player plays 'O'. Players alternate placing one of their respective tokens in a valid =Space= until one player wins or all =Spaces= are filled.
+- A =Space= is valid if:
+  - It is empty
+  - It is in a valid =Cell=
+  - It is not in a =Won Cell=
+
+After a player makes a move, save the location of the played =Space= in its relevant =Cell=. For example, center left. if the =Cell= in that position on the =Board= has been won, 
+
+* Code
+
+** REPL
+
+** Draw the board
+
+** Handle player input
+
+** Evaluate single-cell win
+
+** Evaluate game win
+
+** Bot decision engine
+
+** Tests
+
